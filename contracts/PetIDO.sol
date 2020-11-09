@@ -123,7 +123,7 @@ contract PetIDO is Ownable, Pausable {
         emit IDO(WBNB, msg.sender, amountToken, amountPet);
     }
 
-    function buyNftByPet(uint256 _amountPet, uint256 _petType) public whenNotPaused {
+    function buyNftByPet(uint256 _amountPet, uint256 _petType) public {
         require(enableBuyNftByPet, 'PetIDO: buyNftByPet NOT SUPPORT');
         require(_amountPet >= minBuyAmount, 'PetIDO: MIN PET AMOUNT');
         IERC20(PET).safeTransferFrom(address(msg.sender), buyFinAddr, _amountPet);
